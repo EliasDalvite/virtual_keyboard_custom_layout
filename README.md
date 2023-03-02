@@ -12,7 +12,7 @@ Said that, in order to facilitate usage and for self-improvement, the idea of th
 
 <br>
 <p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/EliasDalvite/virtual_keyboard_custom_layout/image01.png?raw=true" />
+<img style="height:200px;" alt="FlutterBlue" src="https://github.com/EliasDalvite/virtual_keyboard_custom_layout/blob/master/image01.png?raw=true" />
 </p>
 <br>
 <p align="center">
