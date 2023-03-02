@@ -72,14 +72,15 @@ bool reverseLayout;
 ```
 
 ```dart
-/// List of Lists of Strings which will be displayed in the keyboard. All need to be set as Strings.
-/// If you place "sS1" inside a position, it will assume this value in the button and will insert
-/// the entire string into the field.
-/// If you place a upper case letter, it will never change it's value even using SHIFT. It also applies
-/// on the previous case.
-/// To use special actions, such as Shift, put "SHIFT" and it will input the expected icon with it's
-/// functionality. Note that this only works with "BACKSPACE", "RETURN", "SHIFT", "SPACE" and "SWITCHLANGUAGE".
-/// Unfortunately couldn't make Switch Language button work, but I left it there anyway.
+/// List of Lists of Strings which will be displayed in the keyboard. All need to be 
+/// set as Strings. If you place "sS1" inside a position, it will assume this value 
+/// in the button and will insert the entire string into the field.
+/// If you place a upper case letter, it will never change it's value even using 
+/// SHIFT. It also applies on the previous case.
+/// To use special actions, such as Shift, put "SHIFT" and it will input the expected 
+/// icon with it's functionality. Note that this only works with "BACKSPACE", "RETURN",
+/// "SHIFT", "SPACE" and "SWITCHLANGUAGE". Unfortunately couldn't make Switch Language
+/// button work, but I left it there anyway.
 bool keys;
 ```
 
