@@ -1,4 +1,4 @@
-# vvirtual_keyboard_custom_layout
+# virtual_keyboard_custom_layout
 
 # About
 A simple package for displaying a virtual keyboard independently of the Operational System, on devices like kiosks and ATMs. The library is written in Dart and has no native code dependancy.

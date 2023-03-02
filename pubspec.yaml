@@ -8,6 +8,11 @@ environment:
   sdk: '>=2.17.2 <3.0.0'
   flutter: ">=2.5.0"
 
+platforms: 
+  windows:
+  linux:
+  android:
+
 dependencies:
   flutter:
     sdk: flutter
