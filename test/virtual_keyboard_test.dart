@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:virtual_keyboard_custom_layout/virtual_keyboard_custom.dart';
+import 'package:virtual_keyboard_custom_layout/virtual_keyboard_custom_layout.dart';
 
 void main() {
   test('creates keyboard widget with Alphanumeric type', () {

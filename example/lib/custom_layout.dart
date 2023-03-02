@@ -1,4 +1,4 @@
-import 'package:virtual_keyboard_custom_layout/virtual_keyboard_custom.dart';
+import 'package:virtual_keyboard_custom_layout/virtual_keyboard_custom_layout.dart';
 
 class CustomLayoutKeys extends VirtualKeyboardLayoutKeys {
   @override

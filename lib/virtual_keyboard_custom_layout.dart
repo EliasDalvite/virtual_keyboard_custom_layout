@@ -1,7 +1,6 @@
 library virtual_keyboard_custom_layout;
 
 import 'dart:async';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 
 part './src/key_action.dart';
