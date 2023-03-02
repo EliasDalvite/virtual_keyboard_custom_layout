@@ -16,11 +16,11 @@ Said that, in order to facilitate usage and for self-improvement, the idea of th
 </p>
 <br>
 <p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/ahmed-eg/virtual_keyboard_multi_language/blob/master/screen4.png?raw=true" />
+<img style="height:200px;" alt="FlutterBlue" src="https://github.com/EliasDalvite/virtual_keyboard_custom_layout/blob/master/image02.png?raw=true" />
 </p>
 <br>
 <p align="center">
-<img style="height:200px;" alt="FlutterBlue" src="https://github.com/ahmed-eg/virtual_keyboard_multi_language/blob/master/screen2.png?raw=true" />
+<img style="height:200px;" alt="FlutterBlue" src="https://github.com/EliasDalvite/virtual_keyboard_custom_layout/blob/master/image03.png?raw=true" />
 </p>
 <hr>
 
