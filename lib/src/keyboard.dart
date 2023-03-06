@@ -175,14 +175,18 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       fontSize: fontSize,
       color: textColor,
     );
-    keys = widget.keys ?? [];
-    if (widget.type == VirtualKeyboardType.Custom && keys.isNotEmpty) {
-      customKeys = true;
-    }
   }
 
   @override
   Widget build(BuildContext context) {
+    // because sometimes you may transition between 2 different textfields,
+    // you cant initialize the keys in the initstate because it would cause the
+    // keyboard to assume the first selected controller's row quantity.
+    keys = widget.keys ?? [];
+    if (widget.type == VirtualKeyboardType.Custom && keys.isNotEmpty) {
+      customKeys = true;
+    }
+
     switch (type) {
       case VirtualKeyboardType.Numeric:
         return _numeric();
@@ -247,10 +251,6 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
             : _getKeyboardRows(customLayoutKeys);
         break;
     }
-
-    // if(type == VirtualKeyboardType.Custom){
-    //   keyboardType
-    // }
 
     // Generate keyboard row.
     List<Widget> rows = List.generate(keyboardRows.length, (int rowNum) {
