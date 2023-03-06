@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   TextEditingController controllerField01 = TextEditingController();
   TextEditingController controllerField02 = TextEditingController();
-  FocusNode focusField02 = FocusNode();
+  TextEditingController controllerField03 = TextEditingController();
 
   // key variables to utilize the keyboard with the class KeyboardAux
   var isKeyboardVisible = false;
@@ -57,15 +57,25 @@ class _MyHomePageState extends State<MyHomePage> {
             controllerField01.value.text.replaceAll("\n", "");
         setState(() {
           controllerKeyboard = controllerField02;
-          focusField02.requestFocus();
           typeLayout = TypeLayout.alphaEmail;
         });
       }
     });
+    // Making the return function properly.
     controllerField02.addListener(() {
-      if (controllerField01.value.text.endsWith("\n")) {
-        controllerField01.text =
-            controllerField01.value.text.replaceAll("\n", "");
+      if (controllerField02.value.text.endsWith("\n")) {
+        controllerField02.text =
+            controllerField02.value.text.replaceAll("\n", "");
+        setState(() {
+          controllerKeyboard = controllerField03;
+          typeLayout = TypeLayout.numeric;
+        });
+      }
+    });
+    controllerField03.addListener(() {
+      if (controllerField03.value.text.endsWith("\n")) {
+        controllerField03.text =
+            controllerField03.value.text.replaceAll("\n", "");
         setState(() {
           isKeyboardVisible = false;
         });
@@ -110,6 +120,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     isKeyboardVisible = true;
                     controllerKeyboard = controllerField02;
                     typeLayout = TypeLayout.alphaEmail;
+                  });
+                },
+              ),
+              TextFormField(
+                keyboardType: TextInputType.none,
+                controller: controllerField03,
+                onTap: () {
+                  setState(() {
+                    isKeyboardVisible = true;
+                    controllerKeyboard = controllerField03;
+                    typeLayout = TypeLayout.numeric;
                   });
                 },
               ),

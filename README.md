@@ -84,6 +84,11 @@ bool reverseLayout;
 bool keys;
 ```
 
+```dart
+/// Used to set the outline of all the keys from the keyboard.
+Color borderColor
+```
+
 ### VirtualKeyboardType
 enum of Available Virtual Keyboard Types.
 ```dart

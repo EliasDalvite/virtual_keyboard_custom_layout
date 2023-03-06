@@ -25,20 +25,21 @@ class _KeyboardAuxState extends State<KeyboardAux> {
   Widget build(BuildContext context) {
     return Container(
       //Cor do teclado
-      color: Colors.white,
+      color: const Color.fromARGB(255, 255, 255, 255),
       child: GestureDetector(
         onTap: () {},
         child: Container(
-          color: const Color.fromARGB(192, 138, 138, 138),
+          color: const Color.fromARGB(192, 199, 199, 199),
           child: VirtualKeyboard(
-            height: MediaQuery.of(context).size.height * 0.33,
+            height: MediaQuery.of(context).size.height * 0.35,
             width: MediaQuery.of(context).size.width,
-            fontSize: 30,
+            fontSize: 26,
             textColor: const Color.fromARGB(255, 0, 0, 0),
             textController: widget.controller,
             defaultLayouts: const [
               VirtualKeyboardDefaultLayouts.English,
             ],
+            borderColor: const Color.fromARGB(255, 151, 151, 151),
             type: widget.typeKeyboard,
             keys: (widget.typeKeyboard == VirtualKeyboardType.Custom)
                 ? widget.typeLayout.keyboard
