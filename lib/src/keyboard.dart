@@ -429,7 +429,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       return Container(
           decoration:
               BoxDecoration(border: Border.all(color: borderColor, width: 0)),
-          width: (width ?? MediaQuery.of(context).size.width) / 2,
+          width: (width ?? MediaQuery.of(context).size.width) / 3,
           child: wdgt);
     } else {
       return Expanded(child: wdgt);
