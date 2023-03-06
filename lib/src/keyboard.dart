@@ -175,14 +175,18 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       fontSize: fontSize,
       color: textColor,
     );
-    keys = widget.keys ?? [];
-    if (widget.type == VirtualKeyboardType.Custom && keys.isNotEmpty) {
-      customKeys = true;
-    }
   }
 
   @override
   Widget build(BuildContext context) {
+    // because sometimes you may transition between 2 different textfields,
+    // you cant initialize the keys in the initstate because it would cause the
+    // keyboard to assume the first selected controller's row quantity.
+    keys = widget.keys ?? [];
+    if (widget.type == VirtualKeyboardType.Custom && keys.isNotEmpty) {
+      customKeys = true;
+    }
+
     switch (type) {
       case VirtualKeyboardType.Numeric:
         return _numeric();
@@ -248,10 +252,6 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         break;
     }
 
-    // if(type == VirtualKeyboardType.Custom){
-    //   keyboardType
-    // }
-
     // Generate keyboard row.
     List<Widget> rows = List.generate(keyboardRows.length, (int rowNum) {
       var items = List.generate(keyboardRows[rowNum].length, (int keyNum) {
@@ -312,7 +312,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       onTap: () {
         _onKeyPress(key);
       },
-      child: SizedBox(
+      child: Container(
+        decoration: BoxDecoration(border: Border.all(width: 0.2)),
         height: customKeys
             ? height / keys.length
             : height / customLayoutKeys.activeLayout.length,
@@ -355,7 +356,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               // Cancel event loop
               longPress = false;
             },
-            child: SizedBox(
+            child: Container(
+              decoration: BoxDecoration(border: Border.all(width: 0.2)),
               height: double.infinity,
               width: double.infinity,
               child: Icon(
@@ -383,7 +385,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
                 customLayoutKeys.switchLanguage();
               });
             },
-            child: SizedBox(
+            child: Container(
+              decoration: BoxDecoration(border: Border.all(width: 0.2)),
               height: double.infinity,
               width: double.infinity,
               child: Icon(
@@ -407,6 +410,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         _onKeyPress(key);
       },
       child: Container(
+        decoration: BoxDecoration(border: Border.all(width: 0.2)),
         alignment: Alignment.center,
         height: customKeys
             ? height / keys.length
