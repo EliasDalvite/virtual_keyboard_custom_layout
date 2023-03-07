@@ -6,9 +6,11 @@ class KeyboardAux extends StatefulWidget {
   TextEditingController? controller;
   VirtualKeyboardType typeKeyboard;
   TypeLayout typeLayout;
+  bool alwaysCaps;
   String text = "";
   KeyboardAux({
     Key? key,
+    this.alwaysCaps = false,
     this.controller,
     this.typeLayout = TypeLayout.alphaEmail,
     required this.typeKeyboard,
@@ -39,6 +41,7 @@ class _KeyboardAuxState extends State<KeyboardAux> {
             defaultLayouts: const [
               VirtualKeyboardDefaultLayouts.English,
             ],
+            alwaysCaps: widget.alwaysCaps,
             borderColor: const Color.fromARGB(255, 151, 151, 151),
             type: widget.typeKeyboard,
             keys: (widget.typeKeyboard == VirtualKeyboardType.Custom)

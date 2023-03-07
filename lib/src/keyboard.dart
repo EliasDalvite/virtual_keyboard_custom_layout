@@ -103,7 +103,12 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
 
   void _onKeyPress(VirtualKeyboardKey key) {
     if (key.keyType == VirtualKeyboardKeyType.String) {
-      textController.text += ((isShiftEnabled ? key.capsText : key.text) ?? '');
+      if (alwaysCaps) {
+        textController.text += key.capsText ?? '';
+      } else {
+        textController.text +=
+            ((isShiftEnabled ? key.capsText : key.text) ?? '');
+      }
     } else if (key.keyType == VirtualKeyboardKeyType.Action) {
       switch (key.action) {
         case VirtualKeyboardKeyAction.Backspace:
