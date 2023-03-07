@@ -47,6 +47,9 @@ class VirtualKeyboard extends StatefulWidget {
   /// `SPACE` and `SWITCHLANGUAGE` for it's respective values in the keyboard.
   final List<List>? keys;
 
+  /// border of every key in the keyboard.
+  final Color? borderColor;
+
   /// used for multi-languages with default layouts, the default is English only
   /// will be ignored if customLayoutKeys is not null
   final List<VirtualKeyboardDefaultLayouts>? defaultLayouts;
@@ -65,7 +68,8 @@ class VirtualKeyboard extends StatefulWidget {
       this.textColor = Colors.black,
       this.fontSize = 14,
       this.alwaysCaps = false,
-      this.keys})
+      this.keys,
+      this.borderColor})
       : super(key: key);
 
   @override
@@ -93,13 +97,18 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   late List<List> keys;
   // Utilized later to calculate the size of the keys
   bool customKeys = false;
-
+  late Color borderColor;
   // True if shift is enabled.
   bool isShiftEnabled = false;
 
   void _onKeyPress(VirtualKeyboardKey key) {
     if (key.keyType == VirtualKeyboardKeyType.String) {
-      textController.text += ((isShiftEnabled ? key.capsText : key.text) ?? '');
+      if (alwaysCaps) {
+        textController.text += key.capsText ?? '';
+      } else {
+        textController.text +=
+            ((isShiftEnabled ? key.capsText : key.text) ?? '');
+      }
     } else if (key.keyType == VirtualKeyboardKeyType.Action) {
       switch (key.action) {
         case VirtualKeyboardKeyAction.Backspace:
@@ -156,7 +165,7 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
   @override
   void initState() {
     super.initState();
-
+    borderColor = widget.borderColor ?? Colors.transparent;
     textController = widget.textController ?? TextEditingController();
     width = widget.width;
     type = widget.type;
@@ -312,16 +321,21 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
       onTap: () {
         _onKeyPress(key);
       },
-      child: SizedBox(
+      child: Container(
+        decoration:
+            BoxDecoration(border: Border.all(color: borderColor, width: 0)),
         height: customKeys
             ? height / keys.length
             : height / customLayoutKeys.activeLayout.length,
         child: Center(
-            child: Text(
-          alwaysCaps
-              ? key.capsText ?? ''
-              : (isShiftEnabled ? key.capsText : key.text) ?? '',
-          style: textStyle,
+            child: FittedBox(
+          fit: BoxFit.fitWidth,
+          child: Text(
+            alwaysCaps
+                ? key.capsText ?? ''
+                : (isShiftEnabled ? key.capsText : key.text) ?? '',
+            style: textStyle,
+          ),
         )),
       ),
     ));
@@ -407,6 +421,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
         _onKeyPress(key);
       },
       child: Container(
+        decoration:
+            BoxDecoration(border: Border.all(color: borderColor, width: 0)),
         alignment: Alignment.center,
         height: customKeys
             ? height / keys.length
@@ -416,8 +432,11 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
     );
 
     if (key.action == VirtualKeyboardKeyAction.Space) {
-      return SizedBox(
-          width: (width ?? MediaQuery.of(context).size.width) / 2, child: wdgt);
+      return Container(
+          decoration:
+              BoxDecoration(border: Border.all(color: borderColor, width: 0)),
+          width: (width ?? MediaQuery.of(context).size.width) / 3,
+          child: wdgt);
     } else {
       return Expanded(child: wdgt);
     }

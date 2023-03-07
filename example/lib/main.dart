@@ -39,9 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
   // is true will show the numeric keyboard.
   bool isNumericMode = false;
 
+  // necessary to maintain the focus and to insert letters in the
+  // middle of the string.
   TextEditingController controllerField01 = TextEditingController();
   TextEditingController controllerField02 = TextEditingController();
-  FocusNode focusField02 = FocusNode();
+  TextEditingController controllerField03 = TextEditingController();
 
   // key variables to utilize the keyboard with the class KeyboardAux
   var isKeyboardVisible = false;
@@ -50,27 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    // Making the return function properly.
-    controllerField01.addListener(() {
-      if (controllerField01.value.text.endsWith("\n")) {
-        controllerField01.text =
-            controllerField01.value.text.replaceAll("\n", "");
-        setState(() {
-          controllerKeyboard = controllerField02;
-          focusField02.requestFocus();
-          typeLayout = TypeLayout.alphaEmail;
-        });
-      }
-    });
-    controllerField02.addListener(() {
-      if (controllerField01.value.text.endsWith("\n")) {
-        controllerField01.text =
-            controllerField01.value.text.replaceAll("\n", "");
-        setState(() {
-          isKeyboardVisible = false;
-        });
-      }
-    });
+    keyboardListeners();
     super.initState();
   }
 
@@ -113,12 +95,24 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
               ),
+              TextFormField(
+                keyboardType: TextInputType.none,
+                controller: controllerField03,
+                onTap: () {
+                  setState(() {
+                    isKeyboardVisible = true;
+                    controllerKeyboard = controllerField03;
+                    typeLayout = TypeLayout.numeric;
+                  });
+                },
+              ),
               Expanded(
                 child: Container(),
               ),
               if (isKeyboardVisible)
                 Stack(children: [
                   KeyboardAux(
+                    alwaysCaps: true,
                     controller: controllerKeyboard,
                     typeLayout: typeLayout,
                     typeKeyboard: VirtualKeyboardType.Custom,
@@ -129,5 +123,38 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  keyboardListeners() {
+    // Making the return function properly.
+    controllerField01.addListener(() {
+      if (controllerField01.value.text.endsWith("\n")) {
+        controllerField01.text =
+            controllerField01.value.text.replaceAll("\n", "");
+        setState(() {
+          controllerKeyboard = controllerField02;
+          typeLayout = TypeLayout.alphaEmail;
+        });
+      }
+    });
+    controllerField02.addListener(() {
+      if (controllerField02.value.text.endsWith("\n")) {
+        controllerField02.text =
+            controllerField02.value.text.replaceAll("\n", "");
+        setState(() {
+          controllerKeyboard = controllerField03;
+          typeLayout = TypeLayout.numeric;
+        });
+      }
+    });
+    controllerField03.addListener(() {
+      if (controllerField03.value.text.endsWith("\n")) {
+        controllerField03.text =
+            controllerField03.value.text.replaceAll("\n", "");
+        setState(() {
+          isKeyboardVisible = false;
+        });
+      }
+    });
   }
 }

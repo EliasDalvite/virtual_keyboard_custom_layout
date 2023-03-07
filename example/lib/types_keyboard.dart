@@ -27,12 +27,22 @@ extension TypeLayoutExtension on TypeLayout {
           ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ç", "RETURN"],
           ["SHIFT", "z", "x", "c", "v", "b", "n", "m", "SHIFT"],
           [
-            "@",
-            "_",
-            "SPACE",
             ".",
-            "@gmail.com",
+            "~",
+            "!",
+            "%",
+            "^",
+            "&",
+            "*",
+            "=",
+            "+",
+            "{",
+            "}",
+            "'",
+            "?",
+            "-"
           ],
+          ["@hotmail.com", "@", "SPACE", "_", "@gmail.com"],
         ];
       default:
         return [];
