@@ -328,13 +328,14 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
             ? height / keys.length
             : height / customLayoutKeys.activeLayout.length,
         child: Center(
-            child: Text(
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          alwaysCaps
-              ? key.capsText ?? ''
-              : (isShiftEnabled ? key.capsText : key.text) ?? '',
-          style: textStyle,
+            child: FittedBox(
+          fit: BoxFit.fitWidth,
+          child: Text(
+            alwaysCaps
+                ? key.capsText ?? ''
+                : (isShiftEnabled ? key.capsText : key.text) ?? '',
+            style: textStyle,
+          ),
         )),
       ),
     ));

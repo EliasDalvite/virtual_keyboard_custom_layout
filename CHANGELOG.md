@@ -13,5 +13,6 @@
 
 ## 0.0.4-06/03/2023
 
-* Added personalized borderColor to the keys.
-* 
+* Added the possibility to add a colored border to the buttons.
+* Alwascaps now working as intended.
+* New example images and code.
