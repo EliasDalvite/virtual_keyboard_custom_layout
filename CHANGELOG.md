@@ -16,3 +16,7 @@
 * Added the possibility to add a colored border to the buttons.
 * Alwascaps now working as intended.
 * New example images and code.
+
+## 0.0.5-27/03/2023
+
+* Empty string error solved, it is now displayed as white space.
