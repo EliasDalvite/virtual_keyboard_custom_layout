@@ -26,7 +26,6 @@ class _KeyboardAuxState extends State<KeyboardAux> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //Cor do teclado
       color: const Color.fromARGB(255, 255, 255, 255),
       child: GestureDetector(
         onTap: () {},
