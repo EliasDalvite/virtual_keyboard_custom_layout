@@ -1,22 +1,22 @@
-## 0.0.1-02/03/2023
+## 0.0.5
 
-* Initial Release.
+- Empty string error solved, it is now displayed as white space.
 
-## 0.0.2-02/03/2023
+## 0.0.4
 
-* Documentation and Platform Support adjustsments.
+- Added the possibility to add a colored border to the buttons.
+- Alwascaps now working as intended.
+- New example images and code.
 
-## 0.0.3-06/03/2023
+## 0.0.3
 
-* Can now have different custom keyboards in the same screen.
-* Better example in how to implement the dependency and use it.
+- Can now have different custom keyboards in the same screen.
+- Better example in how to implement the dependency and use it.
 
-## 0.0.4-06/03/2023
+## 0.0.2
 
-* Added the possibility to add a colored border to the buttons.
-* Alwascaps now working as intended.
-* New example images and code.
+- Documentation and Platform Support adjustsments.
 
-## 0.0.5-27/03/2023
+## 0.0.1
 
-* Empty string error solved, it is now displayed as white space.
+- Initial Release.

@@ -1,13 +1,12 @@
 # virtual_keyboard_custom_layout
 
 # About
-A simple package for displaying a virtual keyboard independently of the Operational System, on devices like kiosks and ATMs. The library is written in Dart and has no native code dependancy.
+A package that displays a keyboard in devices with no native keyboard, such as self-services like kiosks and ATMs. The library is written in Dart and has no native code dependency. Forked from `virtual_keyboard_multi_language`.
 
-This project was forked from `virtual_keyboard_multi_language` (which was forked from `virtual_keyboard` project). The multi_language version implemented the button to transition between two different set languages.
 I choose to fork from the multi_language version because it was newer and with some more customizations.
 
 # Goal
-The dependency suited my project very well, but one little aspect of it made me fork it and publish a custom version. The problem was the lack of layouts/customizations I could do within the keyboard layout. I needed only a few keys from the two initial keyboard presets and couldn't personalize it the way I wanted.
+The dependency suited my project very well, but one little aspect of it made me fork it and publish a custom version. The problem was the lack of layouts/customizations I could do within the keyboard layout. I needed only a few keys from the two initial presets and couldn't personalize it the way I wanted.
 Said that, in order to facilitate usage and for self-improvement, the idea of the package was created and done, and I'm very happy with the results.
 
 <br>
