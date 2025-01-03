@@ -1,11 +1,11 @@
 name: virtual_keyboard_custom_layout
 description: A package that displays a keyboard in devices with no native keyboard, such as self-services like kiosks and ATMs. The library is written in Dart and has no native code dependency.
-version: 0.0.6
+version: 1.0.1
 #author: Ahmed El-Araby <ahmed-eg@live.com> (multi_language)--> Custom Layout Version by Elias Dalvite <https://github.com/EliasDalvite>
 homepage: https://github.com/EliasDalvite/virtual_keyboard_custom_layout
 
 environment:
-  sdk: '>=2.17.2 <3.0.0'
+  sdk: '>=2.17.2 <4.0.0'
   flutter: ">=2.5.0"
 
 platforms: 
