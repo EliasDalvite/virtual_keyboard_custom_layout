@@ -390,7 +390,8 @@ class _VirtualKeyboardState extends State<VirtualKeyboard> {
               // Cancel event loop
               longPress = false;
             },
-            child: SizedBox(
+            child: Container(
+              color: Colors.transparent,
               height: double.infinity,
               width: double.infinity,
               child: Icon(
